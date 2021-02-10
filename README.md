@@ -52,12 +52,5 @@
     $ gcc udp_server.c -o udp_server
 
 
-### nRF Connect
-![alt text](https://raw.githubusercontent.com/FrancisSieberhagen/nRF91UDPThreadTest/master/images/nRFConnect.jpg)
-
-
-### Server
-![alt text](https://raw.githubusercontent.com/FrancisSieberhagen/nRF91UDPThreadTest/master/images/server.jpg)
-
 
 
