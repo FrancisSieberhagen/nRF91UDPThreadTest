@@ -35,10 +35,11 @@
     $ nrfjprog --program build/zephyr/merged.hex -f nrf91 --chiperase --reset --verify
 
 
-## X86 QEMU board configuration is used to emulate the X86 architecture
+### X86 QEMU board 
+    X86 QEMU board configuration is used to emulate the X86 architecture
     http://developer.nordicsemi.com/nRF_Connect_SDK/doc/1.4.2/zephyr/boards/x86/qemu_x86/doc/index.html#qemu-x86
 
-##SLIP networking over an emulated serial port (CONFIG_NET_SLIP_TAP=y). The detailed setup is described
+    SLIP networking over an emulated serial port (CONFIG_NET_SLIP_TAP=y). The detailed setup is described
     http://developer.nordicsemi.com/nRF_Connect_SDK/doc/1.4.2/zephyr/guides/networking/qemu_setup.html#networking-with-qemu
 
     $ export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
