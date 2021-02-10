@@ -1,0 +1,43 @@
+#
+# Copyright (c) 2020 Nordic Semiconductor ASA
+#
+# SPDX-License-Identifier: LicenseRef-BSD-5-Clause-Nordic
+#
+
+menu "UDP Sample Settings"
+
+config DATA_UPLOAD_SIZE_BYTES
+	int "Number of bytes transmitted to the server"
+	default 50
+
+config DATA_UPLOAD_FREQUENCY_SECONDS
+	int "How often data is transmitted to the server"
+	default 10
+
+config SERVER_HOST
+	string "UDP server IP address"
+	default "139.162.251.115"
+
+config SERVER_PORT
+	int "UDP server port number"
+	default "42511"
+
+config PSM_ENABLE
+	bool "Enable LTE Power Saving Mode"
+	default y
+
+config EDRX_ENABLE
+	bool "Enable LTE enhanced Discontinuous Reception"
+
+config RAI_ENABLE
+	bool "Enable LTE Release Assistance Indication"
+
+endmenu
+
+module = UDP
+module-str = UDP sample
+source "${ZEPHYR_BASE}/subsys/logging/Kconfig.template.log_config"
+
+menu "Zephyr Kernel"
+source "Kconfig.zephyr"
+endmenu
