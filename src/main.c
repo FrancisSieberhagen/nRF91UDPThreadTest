@@ -146,8 +146,10 @@ static void server_transmission_work_fn(struct k_work *work)
 	int err, recsize;
 	char buffer[CONFIG_DATA_UPLOAD_SIZE_BYTES + 1] = {"\0"};
 
+  
         char msgbuf[100];
         char *string = create_json_msg();
+
 
 	strcpy(buffer, string);
 
@@ -306,6 +308,12 @@ static int server_connect(void)
 {
 	int err;
 
+        struct timeval timeout;
+
+        timeout.tv_sec = 2;
+        timeout.tv_usec = 500000;  // 2.5 seconds
+
+
 	client_fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if (client_fd < 0) {
 		printk("Failed to create UDP socket: %d\n", errno);
@@ -318,6 +326,13 @@ static int server_connect(void)
 		printk("Connect failed : %d\n", errno);
 		goto error;
 	}
+
+#if defined(CONFIG_BSD_LIBRARY)   // qemu_x86 returns -1
+        err = setsockopt(client_fd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &timeout, sizeof timeout);
+        if (err < 0) {
+                printk("Set timout error %d\n", err);
+        }
+#endif
 
 	return 0;
 
