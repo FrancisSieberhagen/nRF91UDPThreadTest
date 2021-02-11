@@ -11,6 +11,9 @@
 ### Nordicsemi nRF9160 NB-IoT 
     https://www.nordicsemi.com/Software-and-tools/Development-Kits/nRF9160-DK
 
+### SEGGER EmbeddedStudio ARM
+    http://segger.com/downloads/embedded-studio/embeddedstudio_arm_nordic_linux_x64
+
 ### CLion - A cross-platform IDE for C
     https://devzone.nordicsemi.com/f/nordic-q-a/49730/howto-nrf9160-development-with-clion
 
